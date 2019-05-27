@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="The CLEF Initiative 20th anniversary">
+		<meta name="author" content="Winniest Team">
+
+		<title>Authors</title>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+		<link rel="shortcut icon" type="image/png" href="/winniest-team-project-1.00/media/clef-initiative-thumb.png"/>
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+		<!-- CSS -->
+		<link href="/winniest-team-project-1.00/css/styles.css" rel="stylesheet" />
+
+		<!-- Font Awesome CSS -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+	</head>
+
+	<body>
+
+		<div class = "container">
+			<header>
+				<div class = "row align-items-center" id="header-row">
+					<div class = "col-md-2 logo">
+						<figure>
+							<a href="/winniest-team-project-1.00/html/home.html">
+								<img id="logo" src="/winniest-team-project-1.00/media/clef-initiative-logo.png" class="rounded mx-auto d-block" title="Home">
+							</a>
+						</figure>
+					</div>
+					<div class = "col-md-4 title">
+						<h1 class = "text-left">The CLEF Initiative</h1>
+						<h6 class = "text-left">20<sup>th</sup> anniversary</h6>
+					</div>
+					<div class = "col-md-3">
+					</div>
+					<div class="col-md-3">
+						<form>
+							<div class="form-group">
+								<!--<label for="email">E-mail</label>-->
+								<div class="input-group">
+									<div id="user-img" class="input-group-prepend">
+										<span class="input-group-text" id="inputGroupPrepend">
+											<i class="fas fa-user"></i>
+										</span>
+									</div>
+									<input type="email" class="form-control form-control-sm" id="email" placeholder="E-mail">
+								</div>
+								<!--<label for="pw">Password</label>-->
+								<div class="input-group">
+									<div id="pw-img" class="input-group-prepend">
+										<span class="input-group-text" id="inputGroupPrepend">
+											<i class="fas fa-lock"></i>
+										</span>
+									</div>
+									<input type="password" class="form-control form-control-sm" id="pw" placeholder="Password">
+								</div>
+							</div>
+							<button type="signin" class="btn btn-primary btn-sm btn-block" id="signin-button">Sign in!</button>
+							<small id="lanHelp" class="form-text text-muted text-center">Not a member? Sign up <a class="link" href="/winniest-team-project-1.00/html/signup.html">here</a>.</small>
+						</form>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<ul class="nav nav-pills nav-fill">
+						    <li class="nav-item">
+								<a class="nav-link" href="/winniest-team-project-1.00/html/home.html">
+									<i class="fas fa-home"></i>
+									Home
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/winniest-team-project-1.00/html/papers.html">
+									<i class="fas fa-file"></i>
+									Papers
+								</a>
+							</li>
+							<li class="nav-item">
+							<a class="nav-link active" href="/winniest-team-project-1.00/html/authors.html">
+								<i class="fas fa-users"></i>
+								Authors
+							</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/winniest-team-project-1.00/html/about.html">
+									<i class="fas fa-question-circle"></i>
+									About
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="search">
+									<i class="fas fa-search"></i>
+								</a>
+								<div class="search-content">
+									<div class="measuringWrapper">
+										<form>
+											<div class="form-group">
+												<p class="text">Paper</p>
+												<div class="input-group">
+													<input type="text" class="form-control form-control-sm">
+												</div>
+											</div>
+											<div class="form-group">
+												<p class="text">Author</p>
+												<div class="input-group">
+													<input class="form-control form-control-sm">
+												</div>
+											</div>
+											<div class="form-group">
+												<p class="text">Year</p>
+												<div class="input-group">
+													<input type="number" name="year" min="1999" max="2019" step="1" id="assign-year">
+												</div>
+											</div>
+											<button type="go" class="btn btn-primary" id="search-button">Search</button>
+										</form>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			</header>
+
+			<div class="row">
+				<div class = "col-md-8">
+					<div class="container table-Responsive">
+						<h5>Publications</h5>
+						<h6>Click on the name of the paper you are interested in to get more info and statistics</h6>
+						<br />
+						<table class="table table-bordered table-striped" id="file_table">
+						</table>
+					</div>
+				</div>
+					
+				<div class = "col-md-4">
+					<div class="container" id="stats">
+						<div class="row">
+							<canvas id="myChart-A"></canvas>
+						</div>
+						<div class="row">
+							<canvas id="myChart-B"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--
+			<div class="container" style="width: 30%; height: 50%; top: 32%; right: 50%; bottom: 30%; left: 7%;">
+		    <canvas id="myChart-B"></canvas>
+		  </div> -->
+
+
+		<footer>
+				<div class = "row align-items-center text-center">
+					<div class = "col-md-4" id="footer">
+						<p id="footer-links">
+							<b>The CLEF Initiative</b>
+							<br/>
+							555-55-55-555
+							<br/>
+							clef@gmail.com
+						</p>
+					</div>
+					<div class = "col-md-4" id="footer">
+						<p id="footer-links">
+							Via Giovanni Gradenigo 6, Padova, Italy
+						</p>
+					</div>
+					<div class = "col-md-4" id="footer">
+						<p>
+							<a href="#" id="footer-links">
+								Go on Top <i class="fas fa-arrow-up"></i>
+							</a>
+							<br/>
+							<a href="http://www.clef-initiative.eu/web/clef-initiative/home" id="footer-links">
+								<i class="fas fa-globe"></i>
+							</a>
+							<a href="https://twitter.com/clef_initiative" id="footer-links">
+								<i class="fab fa-twitter-square"></i>
+							</a>
+							<a href="https://en.wikipedia.org/wiki/Conference_and_Labs_of_the_Evaluation_Forum" id="footer-links">
+								<i class="fab fa-wikipedia-w"></i></i>
+							</a>
+						</p>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"crossorigin="anonymous"></script>
+
+    <script src="/winniest-team-project-1.00/js/author_title.js"></script>
+    <script src="/winniest-team-project-1.00/js/author_paper_table.js"></script>
+	<script src="/winniest-team-project-1.00/js/coauthor_hist.js"></script>
+	<script src="/winniest-team-project-1.00/js/years_pie.js"></script>
+	<script src="/winniest-team-project-1.00/js/code.js"></script>
+
+  </body>
+</html>
