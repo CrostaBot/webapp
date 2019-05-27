@@ -16,10 +16,10 @@ COMMENT ON SCHEMA clef IS 'Schema for containing the objects of the clef';
 CREATE TABLE clef.Author (
 	name VARCHAR NOT NULL,
 	papers NOT NULL,
-	years INT NOT NULL,
-  yearStats VARCHAR NOT NULL,
-	coauthors VARCHAR NOT NULL,
-	coauthorStats INT NOT NULL,
+	years INT,
+  yearStats VARCHAR,
+	coauthors VARCHAR,
+	coauthorStats INT,
 	PRIMARY KEY (name)
 );
 
@@ -35,16 +35,16 @@ COMMENT ON COLUMN clef.Author.coauthorStats IS 'The related coauthors of the aut
 -- The table represents the manager of an Author
 --
 -- Version 1.00
-CREATE TABLE clef.Papers (
+CREATE TABLE clef.Paper (
   Title VARCHAR NOT NULL,
 	authors VARCHAR NOT NULL,
   year INT NOT NULL,
-	mDate DATE NOT NULL,
+	mDate VARCHAR NOT NULL,
 	PRIMARY KEY (Title)
 );
 
-COMMENT ON TABLE clef.Papers IS 'Represent a paper';
-COMMENT ON COLUMN clef.Papers.title IS 'The name of the paper.';
-COMMENT ON COLUMN clef.Papers.authors IS 'The authors of the paper.';
-COMMENT ON COLUMN clef.Papers.year IS 'The year of the paper.';
-COMMENT ON COLUMN clef.Papers.mDate IS 'The last change of the paper.';
+COMMENT ON TABLE clef.Paper IS 'Represent a paper';
+COMMENT ON COLUMN clef.Paper.title IS 'The name of the paper.';
+COMMENT ON COLUMN clef.Paper.authors IS 'The authors of the paper.';
+COMMENT ON COLUMN clef.Paper.year IS 'The year of the paper.';
+COMMENT ON COLUMN clef.Paper.mDate IS 'The last change of the paper.';
